@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity implements AddCityFragment.A
         cityAdapter = new CityArrayAdapter(this, dataList);
         cityList.setAdapter(cityAdapter);
 
+        // The following was created with the assistance of OpenAI's ChatGPT to help
+        //me (Cassie Burke) with specifics of Java syntax and how fragments work,
+        //particularly so I could make sure I was opening the fragment correctly
+        //when a list item is clicked and the modifications necessary for an "edit mode"
+        //to work using the same add city framework previously made (January 21st, 2026)
         cityList.setOnItemClickListener((parent, view, position, id) -> {
             City selectedCity = dataList.get(position); //get city that was clicked
             AddCityFragment fragment = AddCityFragment.newInstance(selectedCity);

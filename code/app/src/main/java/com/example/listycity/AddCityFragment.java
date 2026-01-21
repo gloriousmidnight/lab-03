@@ -21,6 +21,7 @@ public class AddCityFragment extends DialogFragment {
 
     private City cityToEdit = null;
 
+    //the following function is from the lab 3 description (Hint #3)
     public static AddCityFragment newInstance(City city) {
         Bundle args = new Bundle();
 
@@ -42,6 +43,11 @@ public class AddCityFragment extends DialogFragment {
         }
     }
 
+    // The following was created with the assistance of OpenAI's ChatGPT to help
+    //me (Cassie Burke) with specifics of Java syntax and how bundles/fragments/serializable
+    //work, mainly for clarification about how to format what I wanted to do into
+    //Java. In this function, particularly how bundles and their arguments work so
+    //the selected city data could be used in the fragment (january 21st, 2025)
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -54,6 +60,8 @@ public class AddCityFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        //for the following four lines, see above for the previous comment about using
+        //ChatGPT to assist with bundles/serializable/args
         Bundle args = getArguments();
         if (args != null) {
             cityToEdit = (City) args.getSerializable("city");
